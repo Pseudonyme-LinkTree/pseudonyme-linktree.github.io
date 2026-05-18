@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUB_CULTURE</title>
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --text-main: #ffffff;
+            --text-muted: #666666;
+            --neon-green: #00ff66; /* Couleur style TouchDesigner / Terminal */
+            --neon-pink: #ff0055;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Courier New', Courier, monospace; /* Look brut / code */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+
+        /* En-tête */
+        .profile-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            background: #111;
+            border: 2px solid var(--text-muted);
+            /* Tu pourras remplacer par une image <img src="ton-image.jpg"> */
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            letter-spacing: -1px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .status {
+            font-size: 0.8rem;
+            color: var(--neon-green);
+            margin-bottom: 20px;
+        }
+
+        /* Grille de liens */
+        .links-wrapper {
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .link-card {
+            background: #0d0d0d;
+            border: 1px solid #222;
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: all 0.2s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Effet au survol style Glitch / Cyber */
+        .link-card:hover {
+            border-color: var(--neon-green);
+            color: var(--neon-green);
+            transform: translateX(4px);
+            box-shadow: -4px 4px 0px var(--neon-pink);
+        }
+
+        .link-card span {
+            display: block;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: normal;
+            margin-top: 4px;
+        }
+
+        /* Footer discret */
+        footer {
+            margin-top: auto;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            padding-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        <div class="avatar"></div> 
+        <h1>PSEUDONYME</h1>
+        <div class="status">● ONLINE _ PROD_MODE</div>
+    </div>
+
+    <div class="links-wrapper">
+        <a href="https://soundcloud.com/pseudonymee" target="_blank" class="link-card">
+            // SOUNDCLOUD
+            <span>Derniers tracks, live sets & expérimentations sonores</span>
+        </a>
+        <a href="https://pseudonyme.bandcamp.com" target="_blank" class="link-card">
+            // BANDCAMP
+            <span>Albums, EPs & collaborations</span>
+        </a>
+
+        <a href="https://zzzone-radio.fr" target="_blank" class="link-card">
+            // WEB_PROJECTS
+            <span>Web Radio avé les copaines</span>
+        </a>
+
+        <a href="https://zzzone-radio.fr/blog/#Pseudonyme" target="_blank" class="link-card">
+            // WEB_PROJECTS
+            <span>Archives visuelles, croquis et illustrations</span>
+        </a>
+        <a href="https://www.instagram.com/jeunezinzgriffone/" target="_blank" class="link-card">
+            // IPAD_DRAWINGS
+            <span>SkyBlog</span>
+        </a>
+        
+        
+        <a href="mailto:contact.pseudonyme@proton.me" class="link-card">
+            // CONTACT
+            <span>Pour les projets, collaborations ou juste discuter</span>
+        </a>
+    </div>
+
+    <footer>
+    </footer>
+
+</body>
+</html>
