@@ -86,13 +86,13 @@
 
         /* --- DOSSIERS DEPLIANTS (DETAILS / SUMMARY) --- */
         details {
-            background: rgba(13, 13, 13, 0.7); /* Fond légèrement transparent */
+            background: rgba(13, 13, 13, 0.7); 
             border: 1px dashed #333;
             padding: 10px;
-            backdrop-filter: blur(5px); /* Petit effet de flou sur la vidéo derrière */
+            backdrop-filter: blur(5px); 
         }
 
-        /* Cache la petite flèche moche par défaut du navigateur */
+        
         details > summary {
             list-style: none;
         }
@@ -102,17 +102,18 @@
 
         .category-title {
             font-size: 1rem;
-            color: var(--text-muted);
+            color: var(--text-main); 
             cursor: pointer;
             padding: 5px;
             letter-spacing: 1px;
             text-transform: uppercase;
-            user-select: none; /* Empêche le texte d'être surligné quand on clique vite */
+            user-select: none; 
             transition: color 0.2s;
+            text-align: center;
         }
 
         .category-title:hover {
-            color: var(--text-main);
+                color: var(--neon-green); 
         }
 
         /* Le petit indicateur personnalisé [+] ou [-] */
@@ -189,7 +190,7 @@
     </video>
 
     <div class="profile-container">
-        <div class="avatar"></div>
+         <img src="peseudohaha.png" class="avatar" alt="Avatar">    
         <h1>PSEUDONYME</h1>
         <div class="status">● ONLINE _ PROD_MODE</div>
     </div>
