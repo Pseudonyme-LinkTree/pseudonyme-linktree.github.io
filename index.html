@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HUB_CULTURE</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>🦋🌳⛓PSEUDONYME_ARBRE2LIEN⛓🌳🦋</title>
     <style>
         :root {
             --bg-dark: #050505;
             --text-main: #ffffff;
             --text-muted: #666666;
-            --neon-green: #00ff66; /* Couleur style TouchDesigner / Terminal */
+            --neon-green: #00ff66;
             --neon-pink: #ff0055;
         }
 
@@ -20,9 +20,10 @@
         }
 
         body {
-            background-color: var(--bg-dark);
+            /* On enlève la couleur unie pour voir la vidéo à travers */
+            background-color: transparent; 
             color: var(--text-main);
-            font-family: 'Courier New', Courier, monospace; /* Look brut / code */
+            font-family: 'Courier New', Courier, monospace;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -30,7 +31,19 @@
             padding: 60px 20px;
         }
 
-        /* En-tête */
+        /* --- VIDEO DE FOND --- */
+        .bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100vw;
+            min-height: 100vh;
+            z-index: -1; /* Pousse la vidéo tout au fond */
+            object-fit: cover; /* Assure que la vidéo prenne tout l'écran */
+            filter: brightness(0.25); /* Assombrit la vidéo pour que les textes restent lisibles */
+        }
+
+        /* --- EN TETE --- */
         .profile-container {
             text-align: center;
             margin-bottom: 40px;
@@ -41,9 +54,11 @@
             height: 90px;
             background: #111;
             border: 2px solid var(--text-muted);
-            /* Tu pourras remplacer par une image <img src="ton-image.jpg"> */
             margin-bottom: 15px;
             display: inline-block;
+            border-radius: 50%;
+            /* Ajoute un petit effet néon derrière la photo */
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.2); 
         }
 
         h1 {
@@ -57,23 +72,85 @@
             font-size: 0.8rem;
             color: var(--neon-green);
             margin-bottom: 20px;
+            text-shadow: 0 0 5px var(--neon-green);
         }
 
-        /* Grille de liens */
+        /* --- CONTENEUR GLOBAL --- */
         .links-wrapper {
             width: 100%;
             max-width: 450px;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 20px;
+        }
+
+        /* --- DOSSIERS DEPLIANTS (DETAILS / SUMMARY) --- */
+        details {
+            background: rgba(13, 13, 13, 0.7); /* Fond légèrement transparent */
+            border: 1px dashed #333;
+            padding: 10px;
+            backdrop-filter: blur(5px); /* Petit effet de flou sur la vidéo derrière */
+        }
+
+        /* Cache la petite flèche moche par défaut du navigateur */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .category-title {
+            font-size: 1rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            user-select: none; /* Empêche le texte d'être surligné quand on clique vite */
+            transition: color 0.2s;
+        }
+
+        .category-title:hover {
+            color: var(--text-main);
+        }
+
+        /* Le petit indicateur personnalisé [+] ou [-] */
+        .category-title::before {
+            content: '[+] ';
+            color: var(--neon-pink);
+            font-weight: bold;
+        }
+
+        /* Quand le dossier est ouvert */
+        details[open] {
+            border-color: #555;
+        }
+
+        details[open] .category-title::before {
+            content: '[-] ';
+            color: var(--neon-green);
+        }
+
+        details[open] .category-title {
+            border-bottom: 1px solid #333;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+        }
+
+        /* --- BOUTONS (LIENS) --- */
+        .category-content {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .link-card {
-            background: #0d0d0d;
+            background: #050505;
             border: 1px solid #222;
             color: var(--text-main);
             text-decoration: none;
-            padding: 20px;
+            padding: 15px;
             font-size: 0.9rem;
             font-weight: bold;
             transition: all 0.2s ease-in-out;
@@ -81,7 +158,6 @@
             overflow: hidden;
         }
 
-        /* Effet au survol style Glitch / Cyber */
         .link-card:hover {
             border-color: var(--neon-green);
             color: var(--neon-green);
@@ -97,55 +173,81 @@
             margin-top: 4px;
         }
 
-        /* Footer discret */
         footer {
             margin-top: auto;
             font-size: 0.7rem;
             color: var(--text-muted);
             padding-top: 40px;
+            padding-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
+    <video autoplay loop muted playsinline class="bg-video">
+        <source src="background.mp4" type="video/mp4">
+    </video>
+
     <div class="profile-container">
-        <img src="pseudohaha.png" class="avatar" alt="Avatar"> 
+        <div class="avatar"></div>
         <h1>PSEUDONYME</h1>
         <div class="status">● ONLINE _ PROD_MODE</div>
     </div>
 
     <div class="links-wrapper">
-        <a href="https://soundcloud.com/pseudonymee" target="_blank" class="link-card">
-            // SOUNDCLOUD
-            <span>Derniers tracks, live sets & expérimentations sonores</span>
-        </a>
-        <a href="https://pseudonyme.bandcamp.com" target="_blank" class="link-card">
-            // BANDCAMP
-            <span>Albums, EPs & collaborations</span>
-        </a>
 
-        <a href="https://zzzone-radio.fr" target="_blank" class="link-card">
-            // WEB_PROJECTS
-            <span>Web Radio avé les copaines</span>
-        </a>
+        <details open>
+            <summary class="category-title">👂 Audio & Sons</summary>
+            <div class="category-content">
+                <a href="https://soundcloud.com/pseudonymee" target="_blank" class="link-card">
+                    // SOUNDCLOUD
+                    <span>Derniers tracks, live sets & expérimentations sonores</span>
+                </a>
+                <a href="https://pseudonyme.bandcamp.com" target="_blank" class="link-card">
+                    // BANDCAMP
+                    <span>Albums, EPs & collaborations</span>
+                </a>
+            </div>
+        </details>
 
-        <a href="https://zzzone-radio.fr/blog/#Pseudonyme" target="_blank" class="link-card">
-            // WEB_PROJECTS
-            <span>Archives visuelles, croquis et illustrations</span>
-        </a>
-        <a href="https://www.instagram.com/jeunezinzgriffone/" target="_blank" class="link-card">
-            // IPAD_DRAWINGS
-            <span>SkyBlog</span>
-        </a>
-        
-        
-        <a href="mailto:contact.pseudonyme@proton.me" class="link-card">
-            // CONTACT
-            <span>Pour les projets, collaborations ou juste discuter</span>
-        </a>
+        <details>
+            <summary class="category-title">👁️ Art Visuel</summary>
+            <div class="category-content">
+                <a href="https://zzzone-radio.fr/blog/#Pseudonyme" target="_blank" class="link-card">
+                    // ARCHIVES_VISUELLES
+                    <span>Croquis, illustrations et visuels génératifs</span>
+                </a>
+            </div>
+        </details>
+
+        <details>
+            <summary class="category-title">𐦂𖨆𐀪𖠋𐀪𐀪 Réseau & Collabs</summary>
+            <div class="category-content">
+                <a href="https://zzzone-radio.fr" target="_blank" class="link-card">
+                    // ZZZONE RADIO
+                    <span>Web Radio avé les copaines</span>
+                </a>
+                <a href="https://www.instagram.com/jeunezinzgriffone/" target="_blank" class="link-card">
+                    // SKYZZZONE
+                    <span>SkyBlog / Projets Web Collectifs</span>
+                </a>
+            </div>
+        </details>
+
+        <details>
+            <summary class="category-title">TERMINAL_CONTACT</summary>
+            <div class="category-content">
+                <a href="mailto:contact.pseudonyme@proton.me" class="link-card">
+                    // MAIL
+                    <span>Pour les projets, collaborations ou juste discuter</span>
+                </a>
+            </div>
+        </details>
+
     </div>
 
     <footer>
+        © 2026 / FAIT MAISON
     </footer>
 
 </body>
