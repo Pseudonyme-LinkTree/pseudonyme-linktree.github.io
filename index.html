@@ -20,8 +20,14 @@
         }
 
         body {
-            /* On enlève la couleur unie pour voir la vidéo à travers */
-            background-color: transparent; 
+            /* Remplace 'ton_image_bandcamp.jpg' par le nom exact de ton fichier image */
+            background-image: url('ton_image_bandcamp.jpg'); 
+            
+            background-position: center center; /* Centre l'image */
+            background-repeat: no-repeat;       /* Évite que l'image se répète en mosaïque */
+            background-size: cover;             /* Force l'image à couvrir tout l'écran */
+            background-attachment: fixed;       /* L'image reste fixe pendant le scroll */
+            
             color: var(--text-main);
             font-family: 'Courier New', Courier, monospace;
             display: flex;
@@ -29,19 +35,7 @@
             align-items: center;
             min-height: 100vh;
             padding: 60px 20px;
-        }
-
-        /* --- VIDEO DE FOND --- */
-        .bg-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            min-width: 100vw;
-            min-height: 100vh;
-            z-index: -1; /* Pousse la vidéo tout au fond */
-            object-fit: cover; /* Assure que la vidéo prenne tout l'écran */
-            
-        }
+}
 
         /* --- EN TETE --- */
         .profile-container {
@@ -185,9 +179,7 @@
 </head>
 <body>
 
-    <video autoplay loop muted playsinline class="bg-video">
-        <source src="background.mp4" type="video/mp4">
-    </video>
+
 
     <div class="profile-container">
          <img src="pseudohaha.png" class="avatar" alt="Avatar">    
@@ -198,7 +190,7 @@
     <div class="links-wrapper">
 
         <details open>
-            <summary class="category-title">┗(°.°)┓♪👂♪┏(°.°)┛</summary>
+            <summary class="category-title">┗(°.°)┓♪SOUNDS♪┏(°.°)┛</summary>
             <div class="category-content">
                 <a href="https://soundcloud.com/pseudonymee" target="_blank" class="link-card">
                     // SOUNDCLOUD
@@ -212,7 +204,7 @@
         </details>
 
         <details>
-            <summary class="category-title">"~._.~"~._👁️_.~"~._.~"</summary>
+            <summary class="category-title">"~._.~"~._👁️VISUALS👁️_.~"~._.~"</summary>
             <div class="category-content">
                 <a href="https://www.instagram.com/jeunezinzgriffone/" target="_blank" class="link-card">
                     // ARCHIVES_VISUELLES
