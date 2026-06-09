@@ -9,8 +9,10 @@
             --bg-dark: #050505;
             --text-main: #ffffff;
             --text-muted: #666666;
-            --neon-green: #00ff66;
-            --neon-pink: #ff0055;
+            
+            /* Nouvelles couleurs bleutées pour matcher les yeux */
+            --neon-blue: #0088ff;
+            --neon-cyan: #00ffff;
         }
 
         * {
@@ -48,7 +50,8 @@
             margin-bottom: 15px;
             display: inline-block;
             border-radius: 50%;
-            box-shadow: 0 0 15px rgba(0, 255, 102, 0.2); 
+            /* Lueur bleue derrière l'avatar */
+            box-shadow: 0 0 15px rgba(0, 136, 255, 0.4); 
         }
 
         h1 {
@@ -60,9 +63,9 @@
 
         .status {
             font-size: 0.8rem;
-            color: var(--neon-green);
+            color: var(--neon-cyan);
             margin-bottom: 20px;
-            text-shadow: 0 0 5px var(--neon-green);
+            text-shadow: 0 0 5px var(--neon-cyan);
         }
 
         /* --- CONTENEUR GLOBAL --- */
@@ -76,7 +79,7 @@
 
         /* --- CASES DOSSIERS --- */
         details {
-            background: rgba(5, 5, 5, 0.8); /* Légèrement plus sombre pour le contraste */
+            background: rgba(5, 5, 5, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.15);
             padding: 12px;
             backdrop-filter: blur(12px);
@@ -85,13 +88,13 @@
         }
         
         details:hover {
-            border-color: var(--neon-pink);
-            box-shadow: 0 0 15px rgba(255, 0, 85, 0.2);
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 136, 255, 0.3);
         }
         
         details[open] {
-            border-color: var(--neon-green);
-            box-shadow: 0 0 15px rgba(0, 255, 102, 0.15);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
         }
 
         .category-title {
@@ -107,19 +110,19 @@
         }
 
         .category-title:hover {
-            color: var(--neon-green); 
+            color: var(--neon-cyan); 
         }
 
         /* Indicateur [+] ou [-] */
         .category-title::before {
             content: '[+] ';
-            color: var(--neon-pink);
+            color: var(--neon-blue);
             font-weight: bold;
         }
 
         details[open] .category-title::before {
             content: '[-] ';
-            color: var(--neon-green);
+            color: var(--neon-cyan);
         }
 
         details[open] .category-title {
@@ -149,10 +152,10 @@
         }
 
         .link-card:hover {
-            border-color: var(--neon-green);
-            color: var(--neon-green);
+            border-color: var(--neon-cyan);
+            color: var(--neon-cyan);
             transform: translateX(4px);
-            box-shadow: -4px 4px 0px var(--neon-pink);
+            box-shadow: -4px 4px 0px var(--neon-blue);
         }
 
         .link-card span {
@@ -224,7 +227,7 @@
             <summary class="category-title">🗂️ PRESSKIT / PRO</summary>
             <div class="category-content">
                 
-                <a href="presskit_pseudonyme.zip" download class="link-card" style="border-color: var(--neon-pink);">
+                <a href="presskit_pseudonyme.zip" download class="link-card" style="border-color: var(--neon-blue);">
                     // TOUT_TELECHARGER_ZIP
                     <span style="color: #fff;">→ Bio, Photos HD, Logos & Fiche Technique (.ZIP)</span>
                 </a>
