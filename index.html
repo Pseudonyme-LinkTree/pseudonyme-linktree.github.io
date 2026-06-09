@@ -22,11 +22,7 @@
         }
 
         body {
-            background-image: url('Illustration_sans_titre.png'); 
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
+            /* On enlève l'image d'ici */
             color: var(--text-main);
             font-family: 'Courier New', Courier, monospace;
             display: flex;
@@ -34,6 +30,23 @@
             align-items: center;
             min-height: 100vh;
             padding: 60px 20px;
+            background-color: #050505; /* Fond noir par sécurité */
+        }
+
+        /* La nouvelle boîte pour ton image de fond interactive */
+        .bg-interactive {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('Illustration_sans_titre.png'); 
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -2; /* Reste tout au fond */
+            filter: url(#space-noise); /* On lui applique le filtre TouchDesigner-like */
+            pointer-events: none; /* Ignore les clics pour ne pas bloquer les boutons */
         }
 
         /* --- EN TETE --- */
@@ -176,7 +189,14 @@
     </style>
 </head>
 <body>
-
+    <div class="bg-interactive"></div>
+    
+        <svg style="position: absolute; width: 0; height: 0;">
+            <filter id="space-noise">
+                <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="2" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" id="glitch-map" />
+            </filter>
+        </svg>
     <div class="profile-container">
          <img src="pseudohaha.png" class="avatar" alt="Avatar">    
          <h1>PSEUDONYME</h1>
@@ -260,6 +280,22 @@
     <footer>
         Bisous
     </footer>
-
+<script>
+        const map = document.getElementById('glitch-map');
+        
+        window.addEventListener('mousemove', (e) => {
+            // Calcule la distance de la souris par rapport au centre de l'écran
+            const XfromCenter = (e.clientX / window.innerWidth) - 0.5;
+            const YfromCenter = (e.clientY / window.innerHeight) - 0.5;
+            
+            // Plus la souris est loin du centre, plus ça déforme (max 40px ici)
+            const distortionStrength = Math.sqrt(XfromCenter * XfromCenter + YfromCenter * YfromCenter) * 40;
+            
+            // On injecte la valeur en direct dans le filtre SVG
+            map.setAttribute('scale', distortionStrength);
+        });
+</script>
+</body>
+</html>
 </body>
 </html>
